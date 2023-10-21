@@ -1,0 +1,22 @@
+[package]
+name = "rgoulter-stm32f401-blinky"
+version = "0.1.0"
+authors = ["Richard Goulter <richard.goulter@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+stm32f4xx-hal = { version = "0.17", features = ["rt", "stm32f401", "usb_fs"] }
+cortex-m = "0.7"
+cortex-m-rt = { version = "0.7", features = ["device"] }
+cortex-m-rtic = "1.0"
+embedded-hal = "0.2"
+fugit = "0.3.7"
+panic-halt = "0.2.0"
+panic-rtt-target = { version = "0.1.2", features = ["cortex-m"] }
+rtt-target = "0.4"
+
+[profile.release]
+lto = true
+incremental = false
+opt-level = "z"
+debug = true
